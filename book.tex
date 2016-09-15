@@ -1,0 +1,100 @@
+%----------------------------------------------------------
+% This is a sample document for the standard LaTeX Book Class
+% Class options
+%       --  Body text point size:
+%                        10pt (default), 11pt, 12pt
+%       --  Paper size:  letterpaper (8.5x11 inch, default)
+%                        a4paper, a5paper, b5paper,
+%                        legalpaper, executivepaper
+%       --  Orientation (portrait is the default):
+%                        landscape
+%       --  Printside:   oneside, twoside (default)
+%       --  Quality:     final(default), draft
+%       --  Title page:  titlepage, notitlepage
+%       --  Columns:     onecolumn (default), twocolumn
+%       --  Start chapter on left:
+%                        openright(no, default), openany
+%       --  Equation numbering (equation numbers on right is the default):
+%                        leqno
+%       --  Displayed equations (centered is the default):
+%                        fleqn (flush left)
+%       --  Open bibliography style (closed bibliography is the default):
+%                        openbib
+
+\documentclass[11pt,twoside,openright]{book}%
+\usepackage{lipsum}
+\usepackage[paperwidth=6in,paperheight=9in,tmargin=.75in,bmargin=.75in,lmargin=.5in,rmargin=.75in]{geometry}
+\usepackage[onehalfspacing]{setspace}
+\tolerance=10000
+\usepackage{graphicx}
+\usepackage{lipsum}
+\usepackage[no-math]{fontspec}    
+\defaultfontfeatures{Ligatures=TeX}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\setmainfont{Merriweather}
+\setsansfont{Merriweather Sans}
+
+\definecolor{Blue}{rgb}{.1,.1,.5}
+\definecolor{Red}{rgb}{.5,.1,.1}
+
+\newfontfamily\headingfont[]{Merriweather}
+\newfontfamily\subtitlefont[]{Merriweather Sans}
+
+\titleformat{\chapter}[display]{\huge\headingfont}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titleformat*{\section}{\Large\itshape\subtitlefont}
+
+\usepackage[font={footnotesize,it,rm}]{caption}
+\graphicspath{{images/}}
+
+\newcommand{\nocf}[1]{
+\begin{figure}[ht!]
+\centering
+\includegraphics[width = 3in]{#1}
+\end{figure}}
+
+
+\newcommand{\cf}[2]{
+\begin{figure}[ht!]
+\centering
+\includegraphics[width = 3in]{#1}
+\caption*{#2}
+\end{figure}}
+
+%\newcommand{\cflong}[3]{
+%\begin{figure}[ht!]
+%\centering
+%\includegraphics[height = 2in]{#1}
+%\caption[#2]* {#3}
+%\end{figure}}
+
+%----------------------------------------------------------
+\begin{document}
+
+\frontmatter
+\title{A Book Title}
+\author{Daniel M. Aukes}
+\date{\today}
+\maketitle
+\tableofcontents
+
+\mainmatter
+\part{First Part}
+\chapter{Opening Chapter}
+\section*{An interesting Section title}
+
+\cf{example.png}{this is an example}
+
+\lipsum[1-5]
+
+\chapter{Building Chapter}
+\section*{Another Interesting Section}
+\cf{example.png}{Caption text can tell you a lot about the story.}
+
+\lipsum[6-10]
+
+\backmatter
+%
+%\chapter{Afterword}
+%\lipsum[5-8]
+\end{document}
